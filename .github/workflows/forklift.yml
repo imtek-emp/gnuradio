@@ -1,0 +1,23 @@
+name: fork
+on:
+  schedule:
+    # Every Friday
+    - cron:  "*/15 * * * *"
+jobs:
+jobs:
+  fork:
+    runs-on: ubuntu-latest
+    steps:
+    - name: sync-fork
+    - uses: actions/checkout@v2
+    - run: |
+        git fetch --prune --unshallow
+    - uses: tprasadtp/forklift@master
+      with:
+        upstream_url: 
+        upstream_branch: "master"
+        branch: "master" 
+        method: "rebase"
+      env:
+        GIT_USER: valarie-ci-bot
+        GIT_EMAIL: valarie-ci-bot@users.noreply.github.com
