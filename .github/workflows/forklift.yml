@@ -9,8 +9,6 @@ jobs:
     steps:
     - name: sync-fork
       uses: actions/checkout@v2
-    - run: |
-        git fetch --prune --unshallow
     - uses: tprasadtp/forklift@master
       with:
         upstream_url: https://github.com/gnuradio/gnuradio.git
